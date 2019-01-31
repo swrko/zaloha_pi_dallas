@@ -1,17 +1,17 @@
 from time import sleep
 import RPi.GPIO as GPIO
 
-DIR1 = 22 # Direction GPIO
-STEP1 = 27 # Step GPIO pin
+DIR1 = 18 # Direction GPIO
+STEP1 = 4 # Step GPIO pin
 
-DIR2 = 24 # Direction GPIO
-STEP2 = 23 # Step GPIO pin
+DIR2 = 27 # Direction GPIO
+STEP2 = 17 # Step GPIO pin
 
-DIR3 = 5 # Direction GPIO
-STEP3 = 25 # Step GPIO pin
+DIR3 = 23 # Direction GPIO
+STEP3 = 22 # Step GPIO pin
 
-DIR4 = 0 # Direction GPIO
-STEP4 = 1  # Step GPIO pin
+DIR4 = 24 # Direction GPIO
+STEP4 = 25  # Step GPIO pin
 
 
 SPR = 410 # Steps per Revolution
@@ -22,11 +22,12 @@ CCW = 0 # CounterClockWise rot
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-MODE = (4, 17, 18) # stepping mode
+'''MODE = (4, 17, 18) # stepping mode
 GPIO.setup(MODE, GPIO.OUT)
 RESOLUTION = {'full':(0, 0, 1)}
 
 GPIO.output(MODE, RESOLUTION['full'])
+'''
 
 # setup GPIO
 GPIO.setup(DIR1, GPIO.OUT)
