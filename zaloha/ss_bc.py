@@ -3,7 +3,11 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-servo = PWM.Servo()
+servo1 = PWM.Servo()
+servo2 = PWM.Servo()
+servo3 = PWM.Servo()
+servo4 = PWM.Servo()
+
 
 DIR1 = 18 # Direction GPIO
 STEP1 = 4 # Step GPIO pin
@@ -45,143 +49,48 @@ delay = .005
 ## inicializia - nastavenie do vychodiskovej polohy
 
 # Set servo1 on GPIO6 to 500us (1.5ms)
-servo.set_servo(6, 1500)
-sleep(0.25)
-servo.stop_servo(6) # clean servo
+servo1.set_servo(6, 1500)
 
 # Set servo2 on GPIO12 to 500us (1.7ms)
-servo.set_servo(13, 1500)
-sleep(0.25)
-
-servo.stop_servo(13) # clean servo
+servo2.set_servo(13, 1500)
 
 # Set servo3 on GPIO13 to 500us (1.7ms)
-servo.set_servo(16, 1500)
-sleep(0.25)
+servo3.set_servo(16, 1500)
 
-servo.stop_servo(16) # clean servo
 
 # Set servo4 on GPIO16 to 500us (1.7ms)
-servo.set_servo(26, 1500)
-sleep(0.25)
-servo.stop_servo(26)
+servo4.set_servo(26, 1500)
 
 
 sleep(5) ## cakanie na vlozenie kocky
 
 ## uchopenie kocky
 
-# Set servo1 on GPIO6 to 500us (1.5ms)
-servo.set_servo(6, 100)
+# Set servo1 on GPIO6 to 500us (1.5ms) #670
+servo1.set_servo(6, 670)
+
+
+# Set servo2 on GPIO12 to 500us (1.7ms) #757
+servo2.set_servo(13, 760)
+
+
+# Set servo3 on GPIO13 to 500us (1.7ms) # 702
+servo3.set_servo(16, 700)
+
+
+# Set servo4 on GPIO16 to 500us (1.7ms) #670
+servo4.set_servo(26, 670)
+
+
+#ukoncenie servo liniek
 sleep(0.25)
-servo.stop_servo(6) # clean servo
+servo1.stop_servo(6) # clean servo
 
-# Set servo2 on GPIO12 to 500us (1.7ms)
-servo.set_servo(13, 670)
 sleep(0.25)
+servo2.stop_servo(13) # clean servo
 
-servo.stop_servo(13) # clean servo
-
-# Set servo3 on GPIO13 to 500us (1.7ms)
-servo.set_servo(16, 670)
 sleep(0.25)
+servo3.stop_servo(16) # clean servo
 
-servo.stop_servo(16) # clean servo
-
-# Set servo4 on GPIO16 to 500us (1.7ms)
-servo.set_servo(26, 100)
 sleep(0.25)
-servo.stop_servo(26)
-
-GPIO.output(DIR1, CW) # nastavenie smeru ClockWise
-
-
-print "ideme cakat na krokace"
-
-sleep(5)
-
-print "tocim krokovim 1 : CV"
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP1, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP1, GPIO.LOW)
-	sleep(delay)
-        print x
-
-
-print "tocim krokovim 1 : CCV"
-GPIO.output(DIR1, CCW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP1, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP1, GPIO.LOW)
-	sleep(delay)
-	
-
-print "tocim krokovim 2 : CV"
-GPIO.output(DIR2, CW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP2, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP2, GPIO.LOW)
-	sleep(delay)
-
-print "tocim krokovim 2 : CCV"
-GPIO.output(DIR2, CCW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP2, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP2, GPIO.LOW)
-	sleep(delay)
-
-print "tocim krokovim 3 : CV"
-GPIO.output(DIR3, CW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP3, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP3, GPIO.LOW)
-	sleep(delay)
-
-print "tocim krokovim 3 : CCV"
-GPIO.output(DIR3, CCW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP3, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP3, GPIO.LOW)
-	sleep(delay)
-
-
-print "tocim krokovim 4 : CV"
-GPIO.output(DIR4, CW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP4, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP4, GPIO.LOW)
-	sleep(delay)
-
-
-print "tocim krokovim 4 : CCV"
-GPIO.output(DIR4, CCW) # nastavenie smeru ClockWise
-
-#vykonanie vo for cyckle pocetkrokov => output HIGH/LOW -> impulzy
-for x in range(step_count):
-	GPIO.output(STEP4, GPIO.HIGH)
-	sleep(delay)
-	GPIO.output(STEP4, GPIO.LOW)
-	sleep(delay)
-
-
-print "serus .... koniec"
+servo4.stop_servo(26) # clean servo
