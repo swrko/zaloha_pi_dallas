@@ -5,9 +5,9 @@ import functions
 
 fnc = functions.functions()
 
-'''
+
 servo = PWM.Servo()
-'''
+
 	
 # Set servo2 on GPIO12 to 500us (1.7ms)
 
@@ -50,30 +50,34 @@ servo.set_servo(26,2500)
 sleep(0.5)
 '''
 
-
+'''
 fnc.vertout()
 fnc.horizout()
 sleep(3)
 fnc.vertin()
 fnc.horizin()
-
-
 '''
 # Set servo2 on GPIO12 to 500us (1.7ms)
-servo1.set_servo(13, 2500)
+servo.set_servo(16, 2500)
 sleep(1.5)
 
-sleep(3)
 # Set servo2 on GPIO12 to 1500us (1.7ms)
-servo1.set_servo(13, 900)
+servo.set_servo(16, 500)
+sleep(1.5)
+
+# Set servo2 on GPIO12 to 500us (1.7ms)
+servo.set_servo(16, 2500)
+sleep(1.5)
+
+# Set servo2 on GPIO12 to 1500us (1.7ms)
+servo.set_servo(16, 1000)
 sleep(1.5)
 
 sleep(3)
 # Clear servo on GPIO
-servo1.stop_servo(13)
+servo.stop_servo(13)
+
 '''
 sleep(1.5)
-servo.stop_servo(6)
-servo.stop_servo(16)
-servo.stop_servo(13)
-servo.stop_servo(26)
+fnc.servclear()
+'''

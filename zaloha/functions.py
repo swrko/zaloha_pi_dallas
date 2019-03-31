@@ -245,34 +245,37 @@ class functions:
 	def vertin(self):
 
 		# Set servo1 on GPIO6 to 500us (1.5ms) #670
-		self.servo.set_servo(6, 1200)
+		self.servo.set_servo(6, 850) #1200
+		#self.servo.set_servo(6, 500)
 		sleep(0.5)
 		# Set servo3 on GPIO13 to 500us (1.7ms) # 702
-		self.servo.set_servo(16, 1000)
+		self.servo.set_servo(16, 1100)
+		#self.servo.set_servo(16, 500)
 		sleep(0.5)
 		
 	def vertout(self):
 		
 		# Set servo1 on GPIO6 to 500us (1.5ms)
-		self.servo.set_servo(6, 2500)
+		self.servo.set_servo(6, 2350)
 		sleep(0.5)
 		# Set servo3 on GPIO13 to 500us (1.7ms)
-		self.servo.set_servo(16, 2500)
+		self.servo.set_servo(16, 2300)
 		sleep(0.5)
 
 	def horizin(self):
 	
+
 		# Set servo2 on GPIO12 to 500us (1.7ms) #757
-		self.servo.set_servo(13, 1000)
+		self.servo.set_servo(13, 930) #1000
 		sleep(0.5)
 		# Set servo4 on GPIO16 to 500us (1.7ms) #670
-		self.servo.set_servo(26, 1050)
+		self.servo.set_servo(26, 950)
 		sleep(0.5)
 	
 	def horizout(self):
 		
 		# Set servo2 on GPIO12 to 500us (1.7ms)
-		self.servo.set_servo(13, 2350)
+		self.servo.set_servo(13, 2250)#2350
 		sleep(0.5)
 		# Set servo4 on GPIO16 to 500us (1.7ms)
 		self.servo.set_servo(26, 2500)
